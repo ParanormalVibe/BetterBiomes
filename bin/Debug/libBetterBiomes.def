@@ -1,5 +1,0 @@
-EXPORTS
-    ModInitialize @1
-    ModMajorVersion @2
-    ModMinorVersion @3
-    ModPreInitialize @4
