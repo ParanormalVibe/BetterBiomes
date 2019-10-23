@@ -17,3 +17,4 @@
 * Place BetterBiomes.dll inside of your `\Cube World\Mods` folder. Create the folder if you do not already have one.
 
 Special thanks to [ChrisMiuchiz](https://github.com/ChrisMiuchiz) for the mod loader and helping to make this mod possible.
+This mod uses [CWSDK](https://github.com/ChrisMiuchiz/CWSDK).
