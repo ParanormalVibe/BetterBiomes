@@ -10,7 +10,6 @@
 ## After
 ![After](https://raw.githubusercontent.com/ParanormalVibe/BetterBiomes/master/After.PNG)
 ## Installation
-* If this is your first time modding, use [Steamless](https://github.com/atom0s/Steamless) to unpack your game. This will enable modding.
 * If you do not have it already, download the latest [CubeModLoader.fip file here](https://github.com/ChrisMiuchiz/Cube-World-Mod-Launcher/releases).
 * Place the CubeModLoader.fip file in the same folder as your cubeworld.exe.
 * Download BetterBiomes.dll from the [releases page](https://github.com/ParanormalVibe/BetterBiomes/releases).
