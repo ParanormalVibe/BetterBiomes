@@ -1,90 +1,12 @@
 cmake_minimum_required (VERSION 3.8)
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-   message(FATAL_ERROR "BetterBiomes REQUIRES clang-cl x64 to build. " )
-endif()
-if(CMAKE_BUILD_TYPE MATCHES "Debug")
-    message(FATAL_ERROR "BetterBiomes cannot be built debug mode due to MSVC binary compatibility issues." )
-endif()
-project("BetterBiomes" VERSION "1.0.0")
-add_library (BetterBiomes 
-    main.cpp
-    cwmods/cwmods.cpp
-    cwmods/common/ByteRGBA.cpp
-    cwmods/common/DoubleVector3.cpp
-    cwmods/common/FloatRGBA.cpp
-    cwmods/common/FloatVector2.cpp
-    cwmods/common/FloatVector3.cpp
-    cwmods/common/IntVector2.cpp
-    cwmods/common/IntVector3.cpp
-    cwmods/common/LongVector3.cpp
-    cwmods/common/Matrix4.cpp
-    cwmods/cube/AdaptionWidget.cpp
-    cwmods/cube/AI.cpp
-    cwmods/cube/BaseWidget.cpp
-    cwmods/cube/Block.cpp
-    cwmods/cube/CharacterWidget.cpp
-    cwmods/cube/ChatWidget.cpp
-    cwmods/cube/Client.cpp
-    cwmods/cube/Controls.cpp
-    cwmods/cube/ControlsWidget.cpp
-    cwmods/cube/Creature.cpp
-    cwmods/cube/Database.cpp
-    cwmods/cube/EnchantWidget.cpp
-    cwmods/cube/Field.cpp
-    cwmods/cube/FormulaDetailsWidget.cpp
-    cwmods/cube/Game.cpp
-    cwmods/cube/GUI.cpp
-    cwmods/cube/HelpWidget.cpp
-    cwmods/cube/Host.cpp
-    cwmods/cube/InventoryWidget.cpp
-    cwmods/cube/Item.cpp
-    cwmods/cube/ItemStack.cpp
-    cwmods/cube/MapOverlayWidget.cpp
-    cwmods/cube/MultiplayerWidget.cpp
-    cwmods/cube/Music.cpp
-    cwmods/cube/Options.cpp
-    cwmods/cube/PreviewWidget.cpp
-    cwmods/cube/Projectile.cpp
-    cwmods/cube/QuestionWidget.cpp
-    cwmods/cube/ServerUpdates.cpp
-    cwmods/cube/Speech.cpp
-    cwmods/cube/SpeechText.cpp
-    cwmods/cube/SpeechTextNode.cpp
-    cwmods/cube/SpeechWidget.cpp
-    cwmods/cube/Spirit.cpp
-    cwmods/cube/Sprite.cpp
-    cwmods/cube/SpriteManager.cpp
-    cwmods/cube/SpriteWidget.cpp
-    cwmods/cube/SystemWidget.cpp
-    cwmods/cube/VoxelWidget.cpp
-    cwmods/cube/World.cpp
-    cwmods/cube/WorldMap.cpp
-    cwmods/cube/XAudio2Engine.cpp
-    cwmods/cube/Zone.cpp
-    cwmods/gfx/Chunk.cpp
-    cwmods/gfx/D3D11Graphics.cpp
-    cwmods/gfx/D3D11IndexBuffer.cpp
-    cwmods/gfx/D3D11Renderer.cpp
-    cwmods/gfx/D3D11VertexBuffer.cpp
-    cwmods/gfx/IndexBuffer.cpp
-    cwmods/gfx/VertexBuffer.cpp
-    cwmods/msvc/_Thrd_t.cpp
-    cwmods/plasma/Array.cpp
-    cwmods/plasma/Attribute.cpp
-    cwmods/plasma/ContinuousAttribute.cpp
-    cwmods/plasma/D3D11Engine.cpp
-    cwmods/plasma/DiscreteAttribute.cpp
-    cwmods/plasma/Display.cpp
-    cwmods/plasma/Engine.cpp
-    cwmods/plasma/FontEngine.cpp
-    cwmods/plasma/Keyable.cpp
-    cwmods/plasma/Matrix.cpp
-    cwmods/plasma/NamedObject.cpp
-    cwmods/plasma/Node.cpp
-    cwmods/plasma/Object.cpp
-    cwmods/plasma/ObjectManager.cpp
-    cwmods/plasma/ScalableFont.cpp
-    cwmods/plasma/Transformation.cpp
-    cwmods/plasma/Vector.cpp
-    cwmods/plasma/Widget.cpp)
-target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+project(BetterBiomes)
+add_subdirectory(cwmods)
+add_library (BetterBiomes SHARED "main.cpp")
+target_link_libraries (BetterBiomes LINK_PUBLIC CWSDK)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods/common)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods/cube)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods/gfx)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods/IDA)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods/msvc)
+target_include_directories (BetterBiomes PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cwmods/plasma)

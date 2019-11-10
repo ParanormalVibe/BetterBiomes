@@ -396,3 +396,4 @@ test/debuginfo-tests
 # VS2017 and VSCode config files.
 .vscode
 .vs
+cwmods/MakeCWModsCMake.py
