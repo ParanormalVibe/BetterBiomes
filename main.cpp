@@ -12,6 +12,7 @@ int CalcBiomeType(long param_1, int x, int y)
 	biomeType = 0;
 	v1 = x + 0xb3f58 + y * 0x39;
 	v1 = v1 ^ v1 * 0x2000;
+
 	switch ((100000 - ((v1 * v1 * 0xec4d + 0x131071f) * v1 + 0xd208dd0d &
 		0x7fffffff) / 0x53e2) % 0x32) {
 	case 1:
@@ -89,7 +90,6 @@ void OverwriteBiomeFunction() {
 	auto funAddr = &CalcBiomeType;
 	WriteFarJMP(CWOffset(0x2B9080), reinterpret_cast<void*&>(funAddr));
 }
-
 
 class BetterBiomes : GenericMod {
 	virtual void Initialize() override {
